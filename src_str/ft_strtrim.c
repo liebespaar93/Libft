@@ -14,8 +14,8 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char				*str;
-	long unsigned int	str_len;
+	char	*str;
+	size_t	str_len;
 
 	if (s1 == (void *)0 || set == (void *)0)
 		return ((void *)0);

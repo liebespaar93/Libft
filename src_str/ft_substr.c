@@ -12,10 +12,10 @@
 
 #include <libft.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, size_t start, size_t len)
 {
-	long unsigned int	s_len;
-	char				*str;
+	size_t	s_len;
+	char	*str;
 
 	if (s == (void *)0)
 		return (ft_calloc(1, sizeof(char)));

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:40:50 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/28 14:10:16 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/06/26 20:06:48 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/06/26 20:07:29 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncpy(char *str, size_t len)
 {
-	size_t	count;
+	char	*tmp;
+	char	*result;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	if (len == 0)
+		return (NULL);
+	tmp = (char *)malloc(sizeof(char) *(len + 1));
+	if (!tmp)
+		return (NULL);
+	result = tmp;
+	tmp[len] = '\0';
+	while (len--)
+		*tmp++ = *str++;
+	return (result);
 }

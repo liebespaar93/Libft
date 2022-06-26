@@ -58,9 +58,7 @@ OBJS_CLEAN = $(OBJS) $(OBJS_BONUS)
 all :$(OBJ_DIR) $(TARGET) 
 
 bonus : $(OBJ_DIR) $(TARGET)/
-	
-test : $(shell ls -1 $(SRC_LST_DIR)/*.c | tr "\n" " ")
-	echo $^
+
 ifeq ($(MAKECMDGOALS), bonus)
 $(TARGET) : $(OBJS) $(OBJS_BONUS)
 	@mkdir -p $(dir $@)

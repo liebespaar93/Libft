@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lst_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:40:50 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/28 14:10:16 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/06/26 20:10:52 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/06/26 20:13:27 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-size_t	ft_strlen(const char *s)
+int	ft_lst_content_len(t_list **lst)
 {
-	size_t	count;
+	t_list	*lst_move;
+	char	*tmp;
+	int		len;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	if (*lst == NULL)
+		return (0);
+	lst_move = *lst;
+	len = 0;
+	while (lst_move)
+	{
+		tmp = lst_move->content;
+		while (*tmp++)
+			len++;
+		lst_move = lst_move->next;
+	}
+	return (len);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,29 +14,29 @@
 
 int	ft_atoi_overflow(long sign);
 
-int	ft_atoi(const char *str)
+int	ft_atoi_move(char **str_ptr)
 {
-	long	num;
-	long	sign;
+	int	num;
+	int	sign;
 
 	num = 0;
 	sign = 1;
-	while ((0x09 <= *str && *str <= 0x0d) || *str == 0x20)
-		str++;
-	if (*str == '+' || *str == '-')
+	while ((0x09 <= **str_ptr && **str_ptr <= 0x0D) || **str_ptr == 0x20)
+		(*str_ptr)++;
+	if ((**str_ptr == '-' || **str_ptr == '+'))
 	{
-		if (*str == '-')
+		if (**str_ptr == '-')
 			sign = -1;
-		str++;
+		(*str_ptr)++;
 	}
-	while (ft_isdigit(*str))
+	while (0x30 <= **str_ptr && **str_ptr <= 0x39)
 	{
 		if (num > num * 10)
 			return (ft_atoi_overflow(sign));
-		num = num * 10 + (*str - 0x30);
-		str++;
+		num = (num * 10) + (**str_ptr - 0x30);
+		(*str_ptr)++;
 	}
-	return ((int)(num * sign));
+	return (num * sign);
 }
 
 int	ft_atoi_overflow(long sign)
