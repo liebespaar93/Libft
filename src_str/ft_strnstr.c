@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *haystack, const char *needle,
-		long unsigned int len)
+#include <libft.h>
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char				*haystack_ptr;
-	char				*needle_ptr;
-	long unsigned int	len_temp;
+	char	*haystack_ptr;
+	char	*needle_ptr;
+	size_t	len_temp;
 
 	haystack_ptr = (char *)haystack;
 	needle_ptr = (char *)needle;

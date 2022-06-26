@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, long unsigned int len)
+#include <libft.h>
+
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*ptr;
 

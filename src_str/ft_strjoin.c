@@ -14,9 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char				*str;
-	long unsigned int	s1_len;
-	long unsigned int	s2_len;
+	char	*str;
+	size_t	s1_len;
+	size_t	s2_len;
 
 	if (s1 == (void *)0 || s2 == (void *)0)
 		return ((void *)0);

@@ -14,8 +14,8 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char				*strdup_ptr;
-	long unsigned int	s1_len;
+	char	*strdup_ptr;
+	size_t	s1_len;
 
 	strdup_ptr = (char *)s1;
 	if (s1 == (void *)0)

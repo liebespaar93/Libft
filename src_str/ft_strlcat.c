@@ -12,12 +12,11 @@
 
 #include <libft.h>
 
-long unsigned int	ft_strlcat(char *dst, const char *src, \
-	long unsigned int dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	long unsigned int	dlen;
-	long unsigned int	slen;
-	long unsigned int	empty_size;
+	size_t	dlen;
+	size_t	slen;
+	size_t	empty_size;
 
 	if (dst == (void *)0 || src == (void *)0)
 		*dst = '\0';

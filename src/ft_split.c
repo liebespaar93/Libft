@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 long unsigned int	ft_split_len(char const *s, char c);
 void				**ft_split_free(char **split_all, long unsigned index);
