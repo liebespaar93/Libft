@@ -25,6 +25,7 @@ SRC_DIR = $(ROOTDIR)/src
 SRC_IS_DIR = $(ROOTDIR)/src_is
 SRC_LST_DIR = $(ROOTDIR)/src_lst
 SRC_MALLOC_DIR = $(ROOTDIR)/src_malloc
+SRC_MATH_DIR = $(ROOTDIR)/src_math
 SRC_MEMORY_DIR = $(ROOTDIR)/src_memory
 SRC_PUT_DIR = $(ROOTDIR)/src_put
 SRC_STR_DIR = $(ROOTDIR)/src_str
@@ -37,6 +38,7 @@ SRC_C =	$(shell ls -1 $(SRC_DIR)/*.c | tr "\n" " ")
 SRC_IS_C = $(shell ls -1 $(SRC_IS_DIR)/*.c | tr "\n" " ")
 SRC_LST_C = $(shell ls -1 $(SRC_LST_DIR)/*.c | tr "\n" " ")
 SRC_MALLOC_C = $(shell ls -1 $(SRC_MALLOC_DIR)/*.c | tr "\n" " ")
+SRC_MATH_C = $(shell ls -1 $(SRC_MATH_DIR)/*.c | tr "\n" " ")
 SRC_MEMORY_C = $(shell ls -1 $(SRC_MEMORY_DIR)/*.c | tr "\n" " ")
 SRC_PUT_C = $(shell ls -1 $(SRC_PUT_DIR)/*.c | tr "\n" " ")
 SRC_STR_C = $(shell ls -1 $(SRC_STR_DIR)/*.c | tr "\n" " ")
@@ -46,6 +48,7 @@ OBJS = $(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_IS_C:$(SRC_IS_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_MALLOC_C:$(SRC_MALLOC_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_MEMORY_C:$(SRC_MEMORY_DIR)/%.c=$(OBJ_DIR)/%.o) \
+		$(SRC_MATH_C:$(SRC_MATH_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_PUT_C:$(SRC_PUT_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_STR_C:$(SRC_STR_DIR)/%.c=$(OBJ_DIR)/%.o) \
 		$(SRC_TO_C:$(SRC_TO_DIR)/%.c=$(OBJ_DIR)/%.o) \
@@ -79,6 +82,9 @@ $(OBJ_DIR)/%.o: $(SRC_IS_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_MALLOC_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_MATH_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_MEMORY_DIR)/%.c
