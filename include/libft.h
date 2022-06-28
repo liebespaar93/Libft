@@ -90,6 +90,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /* src_to */
+int		ft_atoi_len(char *str);
 int		ft_atoi_move(char **str_ptr);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
