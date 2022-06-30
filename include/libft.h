@@ -21,6 +21,21 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+
+typedef struct s_xy
+{
+	float	x;
+	float	y;
+}	t_xy;
+
+typedef struct s_xyz
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_xyz;
+
+
 /* src */
 char	**ft_split(char const *s, char c);
 
