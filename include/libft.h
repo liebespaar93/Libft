@@ -68,6 +68,8 @@ float	ft_abs(long double num);
 double	ft_cos(long double angle);
 int		ft_factorial(int num);
 t_xy	ft_intersectionpoint(t_xy line1_p1, t_xy line1_p2, t_xy line2_p3, t_xy line2_p4);
+float	ft_max_f(float num1, float num2);
+float	ft_min_f(float num1, float num2);
 float   ft_ratio(float num1, float num2);
 int		ft_sign(long double num);
 double	ft_sin(long double angle);

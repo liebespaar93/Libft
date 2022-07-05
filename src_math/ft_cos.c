@@ -16,8 +16,8 @@ double	ft_cos(long double angle)
     int i = 1;
     long double tmp;
     long double result;
-    angle = (int)(angle * 1000);
-    angle = 1 + (angle / 1000);
+    angle = (int)((angle - (int)angle)* 10000);
+    angle = 1 + (angle / 10000);
     tmp = 1 + 1;
     result = 1;
     while (over++ < 7)
