@@ -10,17 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libft.h>
+
 double	ft_cos(long double angle)
 {
     int over = 0;
     int i = 1;
     long double tmp;
     long double result;
-    angle = (int)((angle - (int)angle)* 10000);
-    angle = 1 + (angle / 10000);
+    while (angle < (-3.141592 * 2))
+        angle += 3.141592 * 2;
+    while (angle >= (3.141592 * 2))
+        angle -= 3.141592 * 2;
+    angle = (int)(angle * 1000);
+    angle = 1 + (angle / 1000);
     tmp = 1 + 1;
     result = 1;
-    while (over++ < 7)
+    while (over++ < ft_abs(angle * 10))
     {
         if (i % 2)
             result -= tmp - 1;
