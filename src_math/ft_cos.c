@@ -22,8 +22,8 @@ double	ft_cos(long double angle)
         angle += 3.141592 * 2;
     while (angle >= (3.141592 * 2))
         angle -= 3.141592 * 2;
-    angle = (int)(angle * 1000);
-    angle = 1 + (angle / 1000);
+    angle = (int)(angle * 100000);
+    angle = 1 + (angle / 100000);
     tmp = 1 + 1;
     result = 1;
     while (over++ < ft_abs(angle * 10))

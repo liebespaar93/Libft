@@ -22,8 +22,8 @@ double	ft_sin(long double angle)
         angle += 3.141592 * 2;
     while (angle >= (3.141592 * 2))
         angle -= 3.141592 * 2;
-    angle = (int)(angle * 10000);
-    angle = 1 + (angle / 10000);
+    angle = (int)(angle * 1000000);
+    angle = 1 + (angle / 1000000);
     tmp = angle;
     result = 1;
     while (over++ < ft_abs(angle * 10))
