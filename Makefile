@@ -22,6 +22,7 @@ IFLAGS = -I $(INCLUDE_DIR)
 
 ROOTDIR = $(abspath $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
 SRC_DIR = $(ROOTDIR)/src
+SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 SRC_IS_DIR = $(ROOTDIR)/src_is
 SRC_LST_DIR = $(ROOTDIR)/src_lst
 SRC_MALLOC_DIR = $(ROOTDIR)/src_malloc
@@ -32,6 +33,10 @@ SRC_TO_DIR = $(ROOTDIR)/src_to
 
 OBJ_DIR = $(ROOTDIR)/obj
 INCLUDE_DIR = $(ROOTDIR)/include
+
+SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c
+
+SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_SRC))
 
 SRC_C_SRC =	ft_split.c
 
@@ -104,21 +109,22 @@ SRC_TO_C_SRC =	ft_atoi.c			\
 
 SRC_TO_C = $(addprefix $(SRC_TO_DIR)/, $(SRC_TO_C_SRC))
 
-OBJS =	$(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_IS_C:$(SRC_IS_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_MALLOC_C:$(SRC_MALLOC_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_MEMORY_C:$(SRC_MEMORY_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_PUT_C:$(SRC_PUT_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_STR_C:$(SRC_STR_DIR)/%.c=$(OBJ_DIR)/%.o) \
-		$(SRC_TO_C:$(SRC_TO_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS =	$(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)					\
+		$(SRC_IS_C:$(SRC_IS_DIR)/%.c=$(OBJ_DIR)/%.o)			\
+		$(SRC_MALLOC_C:$(SRC_MALLOC_DIR)/%.c=$(OBJ_DIR)/%.o)	\
+		$(SRC_MEMORY_C:$(SRC_MEMORY_DIR)/%.c=$(OBJ_DIR)/%.o)	\
+		$(SRC_PUT_C:$(SRC_PUT_DIR)/%.c=$(OBJ_DIR)/%.o)			\
+		$(SRC_STR_C:$(SRC_STR_DIR)/%.c=$(OBJ_DIR)/%.o)			\
+		$(SRC_TO_C:$(SRC_TO_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		
-OBJS_BONUS = $(SRC_LST_C:$(SRC_LST_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS_BONUS =	$(SRC_LST_C:$(SRC_LST_DIR)/%.c=$(OBJ_DIR)/%.o)		\
+				$(SRC_GET_NEXT_LINE_C:$(SRC_GET_NEXT_LINE_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 OBJS_CLEAN = $(OBJS) $(OBJS_BONUS)
 
 all : $(OBJ_DIR) $(TARGET) 
 
-bonus : $(OBJ_DIR) $(TARGET)/
+bonus : $(OBJ_DIR) $(TARGET)
 
 ifeq ($(MAKECMDGOALS), bonus)
 $(TARGET) : $(OBJS) $(OBJS_BONUS)
@@ -132,10 +138,10 @@ endif
 $(OBJ_DIR) : 
 	mkdir $@
 
-%.o : %.c
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o : $(SRC_GET_NEXT_LINE_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_IS_DIR)/%.c 
