@@ -1,7 +1,6 @@
 # Libft
 
-간단 실행 방법
-```shell
-$ make
-$ cc main.c libft.a -I include
-```
+
+# 2022/07/29
+libft + get_next_line + dimension 병합
+
