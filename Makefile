@@ -22,7 +22,6 @@ IFLAGS = -I $(INCLUDE_DIR)
 
 ROOTDIR = $(abspath $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
 SRC_DIR = $(ROOTDIR)/src
-SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 SRC_IS_DIR = $(ROOTDIR)/src_is
 SRC_LST_DIR = $(ROOTDIR)/src_lst
 SRC_MALLOC_DIR = $(ROOTDIR)/src_malloc
@@ -34,9 +33,17 @@ SRC_TO_DIR = $(ROOTDIR)/src_to
 OBJ_DIR = $(ROOTDIR)/obj
 INCLUDE_DIR = $(ROOTDIR)/include
 
-SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c
+## DIMENSION ##
+DIMENSIONDIR = $(ROOTDIR)/src_dimension
+SRC_AXIS_DIR = $(DIMENSIONDIR)/src_axis
+SRC_DIMENSIONAL_ZERO_DIR = $(DIMENSIONDIR)/src_dimensional_zero
+SRC_DIMENSIONAL_ONE_DIR = $(DIMENSIONDIR)/src_dimensional_one
+SRC_DIMENSIONAL_TWO_DIR = $(DIMENSIONDIR)/src_dimensional_two
+SRC_DIMENSIONAL_THREE_DIR = $(DIMENSIONDIR)/src_dimensional_three
+SRC_DIMENSIONAL_FOUR_DIR = $(DIMENSIONDIR)/src_dimensional_four
 
-SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_SRC))
+## GET_NEXT_LINE ##
+SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 
 SRC_C_SRC =	ft_split.c
 
@@ -116,32 +123,105 @@ OBJS =	$(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)					\
 		$(SRC_PUT_C:$(SRC_PUT_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		$(SRC_STR_C:$(SRC_STR_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		$(SRC_TO_C:$(SRC_TO_DIR)/%.c=$(OBJ_DIR)/%.o)			\
-		
-OBJS_BONUS =	$(SRC_LST_C:$(SRC_LST_DIR)/%.c=$(OBJ_DIR)/%.o)		\
-				$(SRC_GET_NEXT_LINE_C:$(SRC_GET_NEXT_LINE_DIR)/%.c=$(OBJ_DIR)/%.o)
+		$(SRC_LST_C:$(SRC_LST_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-OBJS_CLEAN = $(OBJS) $(OBJS_BONUS)
+## DIMENSION ##
+SRC_AXIS_C_FILE =	ft_axis_controller.c	\
+					ft_axis_init.c			\
+					ft_axis_view.c
+
+SRC_AXIS_C = $(addprefix $(SRC_AXIS_DIR)/, $(SRC_AXIS_C_FILE))
+
+SRC_DIMENSIONAL_ZERO_C_FILE =	ft_d_zero_new.c
+
+SRC_DIMENSIONAL_ZERO_C = $(addprefix $(SRC_DIMENSIONAL_ZERO_DIR)/, $(SRC_DIMENSIONAL_ZERO_C_FILE))
+
+SRC_DIMENSIONAL_ONE_C_FILE =	ft_d_one_addr.c		\
+								ft_d_one_connect.c	\
+								ft_d_one_connect1.c	\
+								ft_d_one_head.c		\
+								ft_d_one_new.c		\
+								ft_d_one_switch.c
+
+SRC_DIMENSIONAL_ONE_C = $(addprefix $(SRC_DIMENSIONAL_ONE_DIR)/, $(SRC_DIMENSIONAL_ONE_C_FILE))
+
+SRC_DIMENSIONAL_TWO_C_FILE =	ft_d_two_addr.c		\
+								ft_d_two_connect.c	\
+								ft_d_two_connect1.c	\
+								ft_d_two_connect2.c	\
+								ft_d_two_connect_axis_one.c	\
+								ft_d_two_connect_axis_two.c	\
+								ft_d_two_head.c		\
+								ft_d_two_new.c		\
+								ft_d_two_switch.c
+
+SRC_DIMENSIONAL_TWO_C = $(addprefix $(SRC_DIMENSIONAL_TWO_DIR)/, $(SRC_DIMENSIONAL_TWO_C_FILE))
+
+SRC_DIMENSIONAL_THREE_C_FILE =	ft_d_three_addr.c		\
+								ft_d_three_connect.c	\
+								ft_d_three_connect1.c	\
+								ft_d_three_connect2.c	\
+								ft_d_three_connect3.c	\
+								ft_d_three_connect_axis_three.c	\
+								ft_d_three_connect_axis_two.c	\
+								ft_d_three_head.c		\
+								ft_d_three_new.c		\
+								ft_d_three_switch.c
+
+SRC_DIMENSIONAL_THREE_C = $(addprefix $(SRC_DIMENSIONAL_THREE_DIR)/, $(SRC_DIMENSIONAL_THREE_C_FILE))
+
+SRC_DIMENSIONAL_FOUR_C_FILE =	ft_d_four_addr.c		\
+								ft_d_four_connect.c		\
+								ft_d_four_connect1.c	\
+								ft_d_four_connect2.c	\
+								ft_d_four_connect3.c	\
+								ft_d_four_connect4.c	\
+								ft_d_four_connect_axis_four.c	\
+								ft_d_four_connect_axis_three.c	\
+								ft_d_four_connect_axis_three_utils.c	\
+								ft_d_four_head.c		\
+								ft_d_four_new.c			\
+								ft_d_four_switch.c
+
+SRC_DIMENSIONAL_FOUR_C = $(addprefix $(SRC_DIMENSIONAL_FOUR_DIR)/, $(SRC_DIMENSIONAL_FOUR_C_FILE))
+
+## DIMENSION ##
+OBJS_DIMENSION =	$(SRC_AXIS_C:$(SRC_AXIS_DIR)/%.c=$(OBJ_DIR)/%.o)							\
+					$(SRC_DIMENSIONAL_ZERO_C:$(SRC_DIMENSIONAL_ZERO_DIR)/%.c=$(OBJ_DIR)/%.o)	\
+					$(SRC_DIMENSIONAL_ONE_C:$(SRC_DIMENSIONAL_ONE_DIR)/%.c=$(OBJ_DIR)/%.o)		\
+					$(SRC_DIMENSIONAL_TWO_C:$(SRC_DIMENSIONAL_TWO_DIR)/%.c=$(OBJ_DIR)/%.o)		\
+					$(SRC_DIMENSIONAL_THREE_C:$(SRC_DIMENSIONAL_THREE_DIR)/%.c=$(OBJ_DIR)/%.o)	\
+					$(SRC_DIMENSIONAL_FOUR_C:$(SRC_DIMENSIONAL_FOUR_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+## GET_NEXT_LINE ##
+SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c
+
+SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_SRC))
+
+OBJS_GET_NEXT_LINE = $(SRC_GET_NEXT_LINE_C:$(SRC_GET_NEXT_LINE_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+
+OBJS_CLEAN = $(OBJS) $(OBJS_DIMENSION) $(OBJS_GET_NEXT_LINE)
+
+
+#####***** working *****#####
 
 all : $(OBJ_DIR) $(TARGET) 
 
 bonus : $(OBJ_DIR) $(TARGET)
 
 ifeq ($(MAKECMDGOALS), bonus)
-$(TARGET) : $(OBJS) $(OBJS_BONUS)
+$(TARGET) : $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION)
 	ar src $@ $^
 else
 $(TARGET) : $(OBJS)
 	ar src $@ $^
-
 endif
 
 $(OBJ_DIR) : 
 	mkdir $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%.o : $(SRC_GET_NEXT_LINE_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_IS_DIR)/%.c 
@@ -163,6 +243,29 @@ $(OBJ_DIR)/%.o : $(SRC_TO_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_LST_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+## DIMENSION ##
+$(OBJ_DIR)/%.o : $(SRC_AXIS_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o: $(SRC_DIMENSIONAL_ZERO_DIR)/%.c 
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_DIMENSIONAL_ONE_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_DIMENSIONAL_TWO_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_DIMENSIONAL_THREE_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_DIMENSIONAL_FOUR_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+## GET_NEXT_LINE ##
+$(OBJ_DIR)/%.o : $(SRC_GET_NEXT_LINE_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 clean : 
