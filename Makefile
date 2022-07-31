@@ -15,10 +15,57 @@ TARGET = libft.a
 CC = cc
 CXXFLAGS = $(NULL)
 CFLAGS = -Wall -Werror -Wextra
-DFLAGS = $(NULL)
 IFLAGS = -I $(INCLUDE_DIR)
+LDFLAGS = $(NULL)
+LDLIBS = $(NULL)
 
-## DIR ##
+# COLORS
+BG_RED     = \033[41m
+BG_GREEN   = \033[42m
+BG_YELLOW  = \033[43m
+BG_BLUE    = \033[44m
+BG_MAGENTA = \033[45m
+BG_CYAN    = \033[46m
+BG_LGREY   = \033[47m
+BG_DGREY   = \033[100m
+BG_LRED    = \033[101m
+BG_LGREEN  = \033[102m
+BG_LYELLOW = \033[103m
+BG_LBLUE   = \033[104m
+BG_LMAGENTA= \033[105m
+BG_LCYAN   = \033[106m
+BG_WHITE   = \033[107m
+BG_MAKE1   = \033[48;5;236m
+BG_MAKE2   = \033[48;5;238m
+BG_MAKE3   = \033[48;5;240m
+ 
+FG_BLACK   = \033[30m
+FG_RED     = \033[31m
+FG_GREEN   = \033[32m
+FG_YELLOW  = \033[33m
+FG_BLUE    = \033[34m
+FG_MAGENTA = \033[35m
+FG_CYAN    = \033[36m
+FG_LGREY   = \033[37m
+FG_DGREY   = \033[90m
+FG_LRED    = \033[91m
+FG_LGREEN  = \033[92m
+FG_LYELLOW = \033[93m
+FG_LBLUE   = \033[94m
+FG_LMAGENTA= \033[95m
+FG_LCYAN   = \033[96m
+FG_WHITE   = \033[97m
+ 
+CL_BOLD   = \033[1m
+CL_DIM    = \033[2m
+CL_UDLINE = \033[4m
+CL_BLINK  = \033[5m
+CL_INVERT = \033[7m
+CL_HIDDEN = \033[8m
+ 
+NO_COLOR = \033[0m
+
+#####***** DIR *****#####
 
 ROOTDIR = $(abspath $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))))
 SRC_DIR = $(ROOTDIR)/src
@@ -44,6 +91,9 @@ SRC_DIMENSIONAL_FOUR_DIR = $(DIMENSIONDIR)/src_dimensional_four
 
 ## GET_NEXT_LINE ##
 SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
+
+
+#####***** SRC *****#####
 
 SRC_C_SRC =	ft_split.c
 
@@ -212,10 +262,17 @@ bonus : $(OBJ_DIR) $(TARGET)
 
 ifeq ($(MAKECMDGOALS), bonus)
 $(TARGET) : $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION)
-	ar src $@ $^
+	@ar src $@ $^
+	@echo "$(FG_MAGENTA)ar $(FG_LBLUE)src $(FG_LYELLOW)$@$(FG_LCYAN)"
+	@(for i in $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION); do echo $$i; done)
+	@echo "$(FG_WHITE)"
+
 else
 $(TARGET) : $(OBJS)
-	ar src $@ $^
+	@ar src $@ $^
+	@echo "$(FG_MAGENTA)ar $(FG_LBLUE)src $(FG_LYELLOW)$@$(FG_LCYAN)"
+	@(for i in $(OBJS); do echo $$i; done)
+	@echo "$(FG_WHITE)"
 endif
 
 $(OBJ_DIR) : 
@@ -269,9 +326,10 @@ $(OBJ_DIR)/%.o : $(SRC_GET_NEXT_LINE_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 clean : 
-	rm -f $(OBJS_CLEAN)
+	@rm -f $(OBJS_CLEAN)
+	@(for F in $(OBJS_CLEAN); do echo $$F; done)
 
-fclean : OBJS_CLEAN+=$(TARGET)
+fclean : OBJS_CLEAN+=$(ROOTDIR)/$(TARGET)
 fclean : clean
 
 re : fclean all
