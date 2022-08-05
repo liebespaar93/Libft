@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_fd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:49:52 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 20:10:29 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/01 14:45:30 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/01 14:45:33 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_open(char *filename, int option)
 {
-	unsigned char	*ptr;
+	int		fd;
 
-	ptr = (unsigned char *)s;
-	while (n-- > 0)
-		*ptr++ = 0;
+	fd = open(filename, option);
+	if (fd < 0 && write(2, "fd_error\n", 8))
+		exit(1);
+	return (fd);
 }

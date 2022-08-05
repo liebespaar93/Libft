@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:49:52 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 20:10:29 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/03/10 11:52:06 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/03/28 14:33:33 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n-- > 0)
-		*ptr++ = 0;
+	while (*s1 != '\0' && *s1++ == *s2++)
+		;
+	if (s1 == NULL && s2 == NULL)
+		return (0);
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }

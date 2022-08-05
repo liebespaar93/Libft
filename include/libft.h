@@ -16,12 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 512
-# endif
-
-typedef struct s_list	t_list;
-typedef struct s_fd		t_fd;
+typedef struct s_list		t_list;
 
 typedef struct s_list
 {
@@ -29,22 +24,11 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct s_fd
-{
-	int		fd;
-	void	*data;
-	t_fd	*next;
-}	t_fd;
-
 /* src */
+void	*ft_ptrcpy(void **ptr, void *cpy_ptr);
+int		ft_ptrlen(void **ptr, char *type);
 char	**ft_split(char const *s, char c);
-
-/* get_next_line.c */
-char	*ft_get_next_line(int fd);
-char	*ft_buff_split(char **buff_all, int *flag, int rlen);
-void	ft_buff_read(char **buff_static, t_list **buff_head, int *flag, int fd);
-t_fd	*ft_lst_fd_addfront(t_fd **fd_static, int fd, char **buff_static);
-char	*ft_lst_fd_find(t_fd **fd_static, int fd);
+size_t	ft_split_len(char const *s, char c);
 
 /* src_is */
 int		ft_isalnum(int c);
@@ -68,6 +52,11 @@ int		ft_lstsize(t_list *lst);
 
 /* src_malloc */
 void	*ft_calloc(size_t count, size_t size);
+void	*ft_zeromalloc(void **ptr, size_t size);
+
+/* src_math */
+int		ft_max(int num1, int num2);
+int		ft_min(int num1, int num2);
 
 /* src_memory */
 void	ft_bzero(void *s, size_t n);
@@ -85,6 +74,7 @@ void	ft_putstr_fd(char *s, int fd);
 
 /* src_str */
 char	*ft_strchr(const char *s, int c);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -103,6 +93,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /* src_to */
+int		ft_atoi_arr(int **atoi_arr, char *str);
 int		ft_atoi_move(char **str_ptr);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <ft_get_next_line.h>
 
 char	*ft_buff_split(char **buff_all, int *flag, int rlen)
 {

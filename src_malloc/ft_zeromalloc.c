@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_zeromalloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:49:52 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 20:10:29 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/01 13:18:17 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/01 13:18:19 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_zeromalloc(void **ptr, size_t size)
 {
-	unsigned char	*ptr;
+	void	*new_ptr;
 
-	ptr = (unsigned char *)s;
-	while (n-- > 0)
-		*ptr++ = 0;
+	new_ptr = malloc(size);
+	if (new_ptr)
+		ft_bzero(new_ptr, size);
+	if (ptr)
+		*ptr = new_ptr;
+	return (new_ptr);
 }

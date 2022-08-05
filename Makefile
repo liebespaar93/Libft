@@ -72,6 +72,7 @@ SRC_DIR = $(ROOTDIR)/src
 SRC_IS_DIR = $(ROOTDIR)/src_is
 SRC_LST_DIR = $(ROOTDIR)/src_lst
 SRC_MALLOC_DIR = $(ROOTDIR)/src_malloc
+SRC_MATH_DIR = $(ROOTDIR)/src_math
 SRC_MEMORY_DIR = $(ROOTDIR)/src_memory
 SRC_PUT_DIR = $(ROOTDIR)/src_put
 SRC_STR_DIR = $(ROOTDIR)/src_str
@@ -95,7 +96,9 @@ SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 
 #####***** SRC *****#####
 
-SRC_C_SRC =	ft_split.c
+SRC_C_SRC =	ft_ptrcpy.c	\
+			ft_ptrlen.c	\
+			ft_split.c
 
 SRC_C = $(addprefix $(SRC_DIR)/, $(SRC_C_SRC))
 
@@ -121,9 +124,16 @@ SRC_LST_C_SRC =	ft_lst_len.c		\
 
 SRC_LST_C = $(addprefix $(SRC_LST_DIR)/, $(SRC_LST_C_SRC))
 
-SRC_MALLOC_C_SRC =	ft_calloc.c
+SRC_MALLOC_C_SRC =	ft_calloc.c		\
+					ft_zeromalloc.c
 
 SRC_MALLOC_C = $(addprefix $(SRC_MALLOC_DIR)/, $(SRC_MALLOC_C_SRC))
+
+SRC_MATH_C_SRC =	ft_max.c		\
+					ft_min.c
+
+SRC_MATH_C = $(addprefix $(SRC_MATH_DIR)/, $(SRC_MATH_C_SRC))
+
 
 SRC_MEMORY_C_SRC =	ft_bzero.c		\
 					ft_memchr.c		\
@@ -142,6 +152,7 @@ SRC_PUT_C_SRC =	ft_putchar_fd.c		\
 SRC_PUT_C = $(addprefix $(SRC_PUT_DIR)/, $(SRC_PUT_C_SRC))
 
 SRC_STR_C_SRC =	ft_strchr.c			\
+				ft_strcmp.c			\
 				ft_strdup.c			\
 				ft_striteri.c		\
 				ft_strjoin.c		\
@@ -161,6 +172,7 @@ SRC_STR_C_SRC =	ft_strchr.c			\
 SRC_STR_C = $(addprefix $(SRC_STR_DIR)/, $(SRC_STR_C_SRC))
 
 SRC_TO_C_SRC =	ft_atoi.c			\
+				ft_atoi_arr.c		\
 				ft_atoi_move.c		\
 				ft_itoa.c
 
@@ -169,6 +181,7 @@ SRC_TO_C = $(addprefix $(SRC_TO_DIR)/, $(SRC_TO_C_SRC))
 OBJS =	$(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)					\
 		$(SRC_IS_C:$(SRC_IS_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		$(SRC_MALLOC_C:$(SRC_MALLOC_DIR)/%.c=$(OBJ_DIR)/%.o)	\
+		$(SRC_MATH_C:$(SRC_MATH_DIR)/%.c=$(OBJ_DIR)/%.o)	\
 		$(SRC_MEMORY_C:$(SRC_MEMORY_DIR)/%.c=$(OBJ_DIR)/%.o)	\
 		$(SRC_PUT_C:$(SRC_PUT_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		$(SRC_STR_C:$(SRC_STR_DIR)/%.c=$(OBJ_DIR)/%.o)			\
@@ -244,7 +257,9 @@ OBJS_DIMENSION =	$(SRC_AXIS_C:$(SRC_AXIS_DIR)/%.c=$(OBJ_DIR)/%.o)							\
 					$(SRC_DIMENSIONAL_FOUR_C:$(SRC_DIMENSIONAL_FOUR_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 ## GET_NEXT_LINE ##
-SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c
+SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c	\
+							ft_fd.c				\
+							ft_read.c
 
 SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_SRC))
 
@@ -260,20 +275,11 @@ all : $(OBJ_DIR) $(TARGET)
 
 bonus : $(OBJ_DIR) $(TARGET)
 
-ifeq ($(MAKECMDGOALS), bonus)
 $(TARGET) : $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION)
 	@ar src $@ $^
 	@echo "$(FG_MAGENTA)ar $(FG_LBLUE)src $(FG_LYELLOW)$@$(FG_LCYAN)"
 	@(for i in $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION); do echo $$i; done)
 	@echo "$(FG_WHITE)"
-
-else
-$(TARGET) : $(OBJS)
-	@ar src $@ $^
-	@echo "$(FG_MAGENTA)ar $(FG_LBLUE)src $(FG_LYELLOW)$@$(FG_LCYAN)"
-	@(for i in $(OBJS); do echo $$i; done)
-	@echo "$(FG_WHITE)"
-endif
 
 $(OBJ_DIR) : 
 	mkdir $@
@@ -285,6 +291,9 @@ $(OBJ_DIR)/%.o: $(SRC_IS_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_MALLOC_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+$(OBJ_DIR)/%.o : $(SRC_MATH_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_MEMORY_DIR)/%.c

@@ -12,9 +12,9 @@
 
 #include <libft.h>
 
-long unsigned int	ft_split_len(char const *s, char c);
-void				**ft_split_free(char **split_all, long unsigned index);
-char				**ft_split_malloc(char const *s, char c, \
+size_t	ft_split_len(char const *s, char c);
+void	**ft_split_free(char **split_all, long unsigned index);
+char	**ft_split_malloc(char const *s, char c, \
 		char **split_all, long unsigned int split_len);
 
 char	**ft_split(char const *s, char c)
@@ -33,10 +33,10 @@ char	**ft_split(char const *s, char c)
 	return (split_all);
 }
 
-long unsigned int	ft_split_len(char const *s, char c)
+size_t	ft_split_len(char const *s, char c)
 {
-	long unsigned int	split_len;
-	int					flag;
+	size_t	split_len;
+	int		flag;
 
 	flag = 1;
 	split_len = 0;

@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_ptrcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:49:52 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 20:10:29 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/02 19:04:34 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/02 19:04:37 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-void	ft_bzero(void *s, size_t n)
+void	*ft_ptrcpy(void **ptr, void *cpy_ptr)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n-- > 0)
-		*ptr++ = 0;
+	*ptr = cpy_ptr;
+	return (cpy_ptr);
 }
