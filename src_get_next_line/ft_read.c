@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 14:48:08 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/01 14:48:11 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/12 15:25:12 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ t_read_file	*ft_read_file_free(t_read_file **read_file_ptr)
 	*read_file_ptr = NULL;
 	return (*read_file_ptr);
 }
-
 
 t_read_file	*ft_read_file(int fd)
 {

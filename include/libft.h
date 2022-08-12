@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:54:41 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/17 14:03:32 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/12 00:26:28 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef ERROR_M
+#  define ERROR_M 1
+# endif
+
+# ifndef WARRING_M
+#  define WARRING_M 1
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -25,6 +33,9 @@ typedef struct s_list
 }	t_list;
 
 /* src */
+void	*ft_bnull(void **ptr);
+int		ft_error_m(char *str);
+int		ft_warring_m(char *str);
 void	*ft_ptrcpy(void **ptr, void *cpy_ptr);
 int		ft_ptrlen(void **ptr, char *type);
 char	**ft_split(char const *s, char c);

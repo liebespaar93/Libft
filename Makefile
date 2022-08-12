@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kyoulee <kyoulee@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/06/25 19:36:01 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/08/11 04:40:36 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,9 @@ SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 
 #####***** SRC *****#####
 
-SRC_C_SRC =	ft_ptrcpy.c	\
+SRC_C_SRC =	ft_bnull.c	\
+			ft_error.c	\
+			ft_ptrcpy.c	\
 			ft_ptrlen.c	\
 			ft_split.c
 

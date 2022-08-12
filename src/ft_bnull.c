@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptrcpy.c                                        :+:      :+:    :+:   */
+/*   ft_bnull.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 19:04:34 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/11 04:42:14 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/10 02:23:38 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/10 02:23:52 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_ptrcpy(void **ptr, void *cpy_ptr)
+#include <libft.h>
+
+void	*ft_bnull(void **ptr)
 {
-	if (!ptr)
-		return ((void *)0);
-	*ptr = cpy_ptr;
-	return (cpy_ptr);
+	if (ptr)
+		*ptr = NULL;
+	return (NULL);
 }
