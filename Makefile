@@ -6,7 +6,7 @@
 #    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/08/15 10:52:16 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/08/15 11:59:13 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,8 +155,14 @@ SRC_PUT_C_FILE =	ft_putchar_fd.c		\
 
 SRC_PUT_C = $(addprefix $(SRC_PUT_DIR)/, $(SRC_PUT_C_FILE))
 
-SRC_STR_C_FILE =	ft_strchr.c			\
+SRC_STR_C_FILE = \
+				ft_str_diff.c		\
+				ft_str_upper.c		\
+				ft_strchr_index.c	\
+				ft_strchr_num.c		\
+				ft_strchr.c			\
 				ft_strcmp.c			\
+				ft_strcpy.c			\
 				ft_strdup.c			\
 				ft_striteri.c		\
 				ft_strjoin.c		\
@@ -164,6 +170,7 @@ SRC_STR_C_FILE =	ft_strchr.c			\
 				ft_strlcpy.c		\
 				ft_strlen.c			\
 				ft_strmapi.c		\
+				ft_strmcpy.c		\
 				ft_strncmp.c		\
 				ft_strncpy.c		\
 				ft_strnstr.c		\
@@ -178,6 +185,9 @@ SRC_STR_C = $(addprefix $(SRC_STR_DIR)/, $(SRC_STR_C_FILE))
 SRC_TO_C_FILE =	ft_atoi.c			\
 				ft_atoi_arr.c		\
 				ft_atoi_move.c		\
+				ft_dtoa.c			\
+				ft_etoa.c			\
+				ft_itoa_base.c		\
 				ft_itoa.c
 
 SRC_TO_C = $(addprefix $(SRC_TO_DIR)/, $(SRC_TO_C_FILE))
