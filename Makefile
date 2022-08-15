@@ -6,7 +6,7 @@
 #    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/08/11 04:40:36 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/08/15 10:52:16 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,26 +93,28 @@ SRC_DIMENSIONAL_FOUR_DIR = $(DIMENSIONDIR)/src_dimensional_four
 ## GET_NEXT_LINE ##
 SRC_GET_NEXT_LINE_DIR = $(ROOTDIR)/src_get_next_line
 
+## DOUBLY_LIST ##
+SRC_DOUBLY_LIST_DIR = $(ROOTDIR)/src_doubly_list
 
 #####***** SRC *****#####
 
-SRC_C_SRC =	ft_bnull.c	\
+SRC_C_FILE =	ft_bnull.c	\
 			ft_error.c	\
 			ft_ptrcpy.c	\
 			ft_ptrlen.c	\
 			ft_split.c
 
-SRC_C = $(addprefix $(SRC_DIR)/, $(SRC_C_SRC))
+SRC_C = $(addprefix $(SRC_DIR)/, $(SRC_C_FILE))
 
-SRC_IS_C_SRC =	ft_isalnum.c		\
+SRC_IS_C_FILE =	ft_isalnum.c		\
 				ft_isalpha.c		\
 				ft_isascii.c		\
 				ft_isdigit.c		\
 				ft_isprint.c
 
-SRC_IS_C = $(addprefix $(SRC_IS_DIR)/, $(SRC_IS_C_SRC))
+SRC_IS_C = $(addprefix $(SRC_IS_DIR)/, $(SRC_IS_C_FILE))
 
-SRC_LST_C_SRC =	ft_lst_len.c		\
+SRC_LST_C_FILE =	ft_lst_len.c		\
 				ft_lst_malloc.c		\
 				ft_lstadd_back.c	\
 				ft_lstadd_front.c	\
@@ -124,36 +126,36 @@ SRC_LST_C_SRC =	ft_lst_len.c		\
 				ft_lstnew.c			\
 				ft_lstsize.c
 
-SRC_LST_C = $(addprefix $(SRC_LST_DIR)/, $(SRC_LST_C_SRC))
+SRC_LST_C = $(addprefix $(SRC_LST_DIR)/, $(SRC_LST_C_FILE))
 
-SRC_MALLOC_C_SRC =	ft_calloc.c		\
+SRC_MALLOC_C_FILE =	ft_calloc.c		\
 					ft_zeromalloc.c
 
-SRC_MALLOC_C = $(addprefix $(SRC_MALLOC_DIR)/, $(SRC_MALLOC_C_SRC))
+SRC_MALLOC_C = $(addprefix $(SRC_MALLOC_DIR)/, $(SRC_MALLOC_C_FILE))
 
-SRC_MATH_C_SRC =	ft_max.c		\
+SRC_MATH_C_FILE =	ft_max.c		\
 					ft_min.c
 
-SRC_MATH_C = $(addprefix $(SRC_MATH_DIR)/, $(SRC_MATH_C_SRC))
+SRC_MATH_C = $(addprefix $(SRC_MATH_DIR)/, $(SRC_MATH_C_FILE))
 
 
-SRC_MEMORY_C_SRC =	ft_bzero.c		\
+SRC_MEMORY_C_FILE =	ft_bzero.c		\
 					ft_memchr.c		\
 					ft_memcmp.c		\
 					ft_memcpy.c		\
 					ft_memmove.c	\
 					ft_memset.c
 
-SRC_MEMORY_C = $(addprefix $(SRC_MEMORY_DIR)/, $(SRC_MEMORY_C_SRC))
+SRC_MEMORY_C = $(addprefix $(SRC_MEMORY_DIR)/, $(SRC_MEMORY_C_FILE))
 
-SRC_PUT_C_SRC =	ft_putchar_fd.c		\
+SRC_PUT_C_FILE =	ft_putchar_fd.c		\
 				ft_putendl_fd.c		\
 				ft_putnbr_fd.c		\
 				ft_putstr_fd.c
 
-SRC_PUT_C = $(addprefix $(SRC_PUT_DIR)/, $(SRC_PUT_C_SRC))
+SRC_PUT_C = $(addprefix $(SRC_PUT_DIR)/, $(SRC_PUT_C_FILE))
 
-SRC_STR_C_SRC =	ft_strchr.c			\
+SRC_STR_C_FILE =	ft_strchr.c			\
 				ft_strcmp.c			\
 				ft_strdup.c			\
 				ft_striteri.c		\
@@ -171,15 +173,16 @@ SRC_STR_C_SRC =	ft_strchr.c			\
 				ft_tolower.c		\
 				ft_toupper.c
 
-SRC_STR_C = $(addprefix $(SRC_STR_DIR)/, $(SRC_STR_C_SRC))
+SRC_STR_C = $(addprefix $(SRC_STR_DIR)/, $(SRC_STR_C_FILE))
 
-SRC_TO_C_SRC =	ft_atoi.c			\
+SRC_TO_C_FILE =	ft_atoi.c			\
 				ft_atoi_arr.c		\
 				ft_atoi_move.c		\
 				ft_itoa.c
 
-SRC_TO_C = $(addprefix $(SRC_TO_DIR)/, $(SRC_TO_C_SRC))
+SRC_TO_C = $(addprefix $(SRC_TO_DIR)/, $(SRC_TO_C_FILE))
 
+## SRC OBJS ##
 OBJS =	$(SRC_C:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)					\
 		$(SRC_IS_C:$(SRC_IS_DIR)/%.c=$(OBJ_DIR)/%.o)			\
 		$(SRC_MALLOC_C:$(SRC_MALLOC_DIR)/%.c=$(OBJ_DIR)/%.o)	\
@@ -250,7 +253,7 @@ SRC_DIMENSIONAL_FOUR_C_FILE =	ft_d_four_addr.c		\
 
 SRC_DIMENSIONAL_FOUR_C = $(addprefix $(SRC_DIMENSIONAL_FOUR_DIR)/, $(SRC_DIMENSIONAL_FOUR_C_FILE))
 
-## DIMENSION ##
+## DIMENSION OBJS ##
 OBJS_DIMENSION =	$(SRC_AXIS_C:$(SRC_AXIS_DIR)/%.c=$(OBJ_DIR)/%.o)							\
 					$(SRC_DIMENSIONAL_ZERO_C:$(SRC_DIMENSIONAL_ZERO_DIR)/%.c=$(OBJ_DIR)/%.o)	\
 					$(SRC_DIMENSIONAL_ONE_C:$(SRC_DIMENSIONAL_ONE_DIR)/%.c=$(OBJ_DIR)/%.o)		\
@@ -259,17 +262,29 @@ OBJS_DIMENSION =	$(SRC_AXIS_C:$(SRC_AXIS_DIR)/%.c=$(OBJ_DIR)/%.o)							\
 					$(SRC_DIMENSIONAL_FOUR_C:$(SRC_DIMENSIONAL_FOUR_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 ## GET_NEXT_LINE ##
-SRC_GET_NEXT_LINE_C_SRC =	ft_get_next_line.c	\
+SRC_GET_NEXT_LINE_C_FILE =	ft_get_next_line.c	\
 							ft_fd.c				\
 							ft_read.c
 
-SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_SRC))
+SRC_GET_NEXT_LINE_C = $(addprefix $(SRC_GET_NEXT_LINE_DIR)/, $(SRC_GET_NEXT_LINE_C_FILE))
 
+## GET_NEXT_LINE OBJS ##
 OBJS_GET_NEXT_LINE = $(SRC_GET_NEXT_LINE_C:$(SRC_GET_NEXT_LINE_DIR)/%.c=$(OBJ_DIR)/%.o)
 
+## DOUBLY_LIST ##
+SRC_DOUBLY_LIST_C_FILE = ft_doubly_list_add.c		\
+						ft_doubly_list_connect.c	\
+						ft_doubly_list_head_add.c	\
+						ft_doubly_list_head_pop.c	\
+						ft_doubly_list.c
 
-OBJS_CLEAN = $(OBJS) $(OBJS_DIMENSION) $(OBJS_GET_NEXT_LINE)
+SRC_DOUBLY_LIST_C = $(addprefix $(SRC_DOUBLY_LIST_DIR)/, $(SRC_DOUBLY_LIST_C_FILE))
 
+## DOUBLY_LIST OBJS ##
+OBJS_DOUBLY_LIST = $(SRC_DOUBLY_LIST_C:$(SRC_DOUBLY_LIST_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+## OBJS_CLEAN ##
+OBJS_CLEAN = $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION)  $(OBJS_DOUBLY_LIST)
 
 #####***** working *****#####
 
@@ -277,7 +292,7 @@ all : $(OBJ_DIR) $(TARGET)
 
 bonus : $(OBJ_DIR) $(TARGET)
 
-$(TARGET) : $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION)
+$(TARGET) : $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION) $(OBJS_DOUBLY_LIST)
 	@ar src $@ $^
 	@echo "$(FG_MAGENTA)ar $(FG_LBLUE)src $(FG_LYELLOW)$@$(FG_LCYAN)"
 	@(for i in $(OBJS) $(OBJS_GET_NEXT_LINE) $(OBJS_DIMENSION); do echo $$i; done)
@@ -335,6 +350,12 @@ $(OBJ_DIR)/%.o : $(SRC_DIMENSIONAL_FOUR_DIR)/%.c
 ## GET_NEXT_LINE ##
 $(OBJ_DIR)/%.o : $(SRC_GET_NEXT_LINE_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+## DOUBLY_LIST ##
+$(OBJ_DIR)/%.o : $(SRC_DOUBLY_LIST_DIR)/%.c
+	$(CC) $(CPPFLAGS) $(IFLAGS) -c $< -o $@
+
+
 
 clean : 
 	@rm -f $(OBJS_CLEAN)
