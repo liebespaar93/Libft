@@ -6,7 +6,7 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:54:41 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/12 00:26:28 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/15 11:59:50 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,13 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
 /* src_str */
+int		ft_str_diff(char *str, char *src);
+char	*ft_str_upper(char *str);
+int		ft_strchr_index(char *str, char c);
+int		ft_strchr_num(char **str);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
+size_t	ft_strcpy(char *dst, const char *src);
 char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -93,6 +98,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_strmcpy(char **dst, char *src);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strncpy(char *str, size_t len);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
@@ -107,6 +113,9 @@ int		ft_toupper(int c);
 int		ft_atoi_arr(int **atoi_arr, char *str);
 int		ft_atoi_move(char **str_ptr);
 int		ft_atoi(const char *str);
+int		ft_dtoa(long double value, char **str, int max_len);
+char	*ft_etoa(int e);
+int		ft_itoa_base(__int128 value, char **str, int index);
 char	*ft_itoa(int n);
 
 #endif
