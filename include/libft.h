@@ -6,7 +6,7 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:54:41 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/15 11:59:50 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:06:19 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,6 @@ int		ft_lstsize(t_list *lst);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_zeromalloc(void **ptr, size_t size);
 
-/* src_math */
-int		ft_max(int num1, int num2);
-int		ft_min(int num1, int num2);
-
 /* src_memory */
 void	ft_bzero(void *s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -110,7 +106,8 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /* src_to */
-int		ft_atoi_arr(int **atoi_arr, char *str);
+size_t	ft_atoi_arr(int **atoi_arr_ptr, char *str);
+size_t	ft_atoi_len(char *str);
 int		ft_atoi_move(char **str_ptr);
 int		ft_atoi(const char *str);
 int		ft_dtoa(long double value, char **str, int max_len);

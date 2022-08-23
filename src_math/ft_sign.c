@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_sign.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 15:11:21 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/22 12:52:48 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/20 11:59:48 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/20 11:59:49 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int num1, int num2)
+int	ft_sign(float num)
 {
-	if (num1 > num2)
-		return (num1);
-	return (num2);
-}
-
-float	ft_float_max(float num1, float num2)
-{
-	if (num1 > num2)
-		return (num1);
-	return (num2);
+	if (num < 0)
+		return (-1);
+	return (1);
 }

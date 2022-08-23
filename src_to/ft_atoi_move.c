@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_move.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:09:40 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 19:12:01 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/21 13:20:31 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_atoi_move(char **str_ptr)
 
 	num = 0;
 	sign = 1;
-	while ((0x09 <= **str_ptr && **str_ptr <= 0x0D) || **str_ptr == 0x20)
+	while (!(**str_ptr == '-' || **str_ptr == '+' || \
+		(0x30 <= **str_ptr && **str_ptr <= 0x39)))
 		(*str_ptr)++;
 	if ((**str_ptr == '-' || **str_ptr == '+'))
 	{

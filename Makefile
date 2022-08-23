@@ -6,7 +6,7 @@
 #    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/08/15 11:59:13 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/08/20 12:06:35 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,8 +133,18 @@ SRC_MALLOC_C_FILE =	ft_calloc.c		\
 
 SRC_MALLOC_C = $(addprefix $(SRC_MALLOC_DIR)/, $(SRC_MALLOC_C_FILE))
 
-SRC_MATH_C_FILE =	ft_max.c		\
-					ft_min.c
+SRC_MATH_C_FILE =	ft_abs.c					\
+					ft_constant_e.c				\
+					ft_constant_pi.c			\
+					ft_constant_square_root.c	\
+					ft_cos.c					\
+					ft_cycle.c					\
+					ft_max.c					\
+					ft_min.c					\
+					ft_sign.c					\
+					ft_sin.c					\
+					ft_tan.c
+
 
 SRC_MATH_C = $(addprefix $(SRC_MATH_DIR)/, $(SRC_MATH_C_FILE))
 

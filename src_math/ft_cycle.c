@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_cycle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 15:11:21 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/22 12:52:48 by kyoulee          ###   ########.fr       */
+/*   Created: 2022/08/20 11:58:43 by kyoulee           #+#    #+#             */
+/*   Updated: 2022/08/20 12:21:06 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int num1, int num2)
-{
-	if (num1 > num2)
-		return (num1);
-	return (num2);
-}
+#include <ft_math.h>
 
-float	ft_float_max(float num1, float num2)
+double	ft_cycle(double value, double cycle)
 {
-	if (num1 > num2)
-		return (num1);
-	return (num2);
+	double	abs_cycle;
+
+	abs_cycle = ft_abs(cycle);
+	while (value < -abs_cycle)
+		value += abs_cycle * 2;
+	while (value > abs_cycle)
+		value -= abs_cycle * 2;
+	return (value);
 }
