@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoulee <kyoulee@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:09:40 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/03/25 19:12:01 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/08/25 18:53:21 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi_overflow(long sign);
 
 int	ft_atoi(const char *str)
 {
-	long	num;
+	int	num;
 	long	sign;
 
 	num = 0;
