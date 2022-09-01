@@ -6,15 +6,14 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 03:39:16 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/22 21:49:01 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/09/01 18:25:51 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_DOUBLY_LIST_H
 # define FT_DOUBLY_LIST_H
 
-typedef struct s_d_list			t_d_list;
-typedef struct s_d_list_header	t_d_list_header;
+typedef struct s_d_list	t_d_list;
 
 typedef struct s_d_list
 {
