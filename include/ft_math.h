@@ -6,7 +6,7 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 11:50:59 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/22 12:53:10 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/09/02 17:20:00 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ float	ft_float_max(float num1, float num2);
 
 /* ft_min.c */
 double	ft_min(double value1, double value2);
+float	ft_float_min(float num1, float num2);
+
+/* ft_percent.c */
+double	ft_percent(int start, int end, int current);
 
 /* ft_cycle.c */
 double	ft_cycle(double value, double cycle);

@@ -6,7 +6,7 @@
 #    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/08/20 12:06:35 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/09/02 17:20:32 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,6 +141,7 @@ SRC_MATH_C_FILE =	ft_abs.c					\
 					ft_cycle.c					\
 					ft_max.c					\
 					ft_min.c					\
+					ft_percent.c				\
 					ft_sign.c					\
 					ft_sin.c					\
 					ft_tan.c
