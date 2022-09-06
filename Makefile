@@ -6,7 +6,7 @@
 #    By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/25 08:16:11 by kyoulee           #+#    #+#              #
-#    Updated: 2022/09/02 17:20:32 by kyoulee          ###   ########.fr        #
+#    Updated: 2022/09/07 01:10:48 by kyoulee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -194,6 +194,7 @@ SRC_STR_C_FILE = \
 SRC_STR_C = $(addprefix $(SRC_STR_DIR)/, $(SRC_STR_C_FILE))
 
 SRC_TO_C_FILE =	ft_atoi.c			\
+				ft_atoi_base.c		\
 				ft_atoi_arr.c		\
 				ft_atoi_move.c		\
 				ft_dtoa.c			\

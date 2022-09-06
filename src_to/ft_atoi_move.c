@@ -6,13 +6,11 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:09:40 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/21 13:20:31 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/09/07 02:33:48 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-int	ft_atoi_overflow(long sign);
 
 int	ft_atoi_move(char **str_ptr)
 {
@@ -38,11 +36,4 @@ int	ft_atoi_move(char **str_ptr)
 		(*str_ptr)++;
 	}
 	return (num * sign);
-}
-
-int	ft_atoi_overflow(long sign)
-{
-	if (sign == 1)
-		return (-1);
-	return (0);
 }

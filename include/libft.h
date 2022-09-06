@@ -6,7 +6,7 @@
 /*   By: kyoulee <kyoulee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:54:41 by kyoulee           #+#    #+#             */
-/*   Updated: 2022/08/21 13:06:19 by kyoulee          ###   ########.fr       */
+/*   Updated: 2022/09/07 01:10:27 by kyoulee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /* src_to */
+int		ft_atoi_overflow(long sign);
+int		ft_atoi_base(char **str_ptr);
 size_t	ft_atoi_arr(int **atoi_arr_ptr, char *str);
 size_t	ft_atoi_len(char *str);
 int		ft_atoi_move(char **str_ptr);
